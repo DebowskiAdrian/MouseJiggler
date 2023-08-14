@@ -1,41 +1,23 @@
 package org.ajvid.model;
 
 public class JigglerVariable {
-    private int minYAxis;
-    private int minXAxis;
-    private int maxYAxis;
-    private int maxXAxis;
+    private double maxYAxis;
+    private double maxXAxis;
     private int timeDelayBetweenMove;
 
-    public int getMinYAxis() {
-        return minYAxis;
-    }
-
-    public void setMinYAxis(int minYAxis) {
-        this.minYAxis = minYAxis;
-    }
-
-    public int getMinXAxis() {
-        return minXAxis;
-    }
-
-    public void setMinXAxis(int minXAxis) {
-        this.minXAxis = minXAxis;
-    }
-
-    public int getMaxYAxis() {
+    public double getMaxYAxis() {
         return maxYAxis;
     }
 
-    public void setMaxYAxis(int maxYAxis) {
+    public void setMaxYAxis(double maxYAxis) {
         this.maxYAxis = maxYAxis;
     }
 
-    public int getMaxXAxis() {
+    public double getMaxXAxis() {
         return maxXAxis;
     }
 
-    public void setMaxXAxis(int maxXAxis) {
+    public void setMaxXAxis(double maxXAxis) {
         this.maxXAxis = maxXAxis;
     }
 
