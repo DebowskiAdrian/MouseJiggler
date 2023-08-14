@@ -1,16 +1,13 @@
 package org.ajvid;
 
-import org.ajvid.service.JigglerService;
-
-import java.awt.*;
-
-import static org.ajvid.gui.JigglerGui.initializeGui;
+import org.ajvid.gui.JigglerGui;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, AWTException {
+    public static void main(String[] args){
 
-        initializeGui();
-        //JigglerService jigglerService = new JigglerService();
-        //jigglerService.moveMouse();
+        JigglerGui jigglerGui = new JigglerGui();
+        jigglerGui.initializeGui();
+
+
     }
 }
