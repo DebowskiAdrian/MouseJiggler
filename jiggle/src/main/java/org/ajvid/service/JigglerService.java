@@ -30,7 +30,7 @@ public class JigglerService implements Runnable {
         jigglerVariable.setMaxYAxis(screenSize.getHeight());
 
         while (jiggle){
-            robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),(int)jigglerVariable.getMaxYAxis());
+            robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),random.nextInt((int)jigglerVariable.getMaxYAxis()));
             try{
                 Thread.sleep(5000);
             }catch (InterruptedException exception){
