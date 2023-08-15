@@ -38,6 +38,12 @@ public class JigglerGui {
                 label1.setForeground(Color.RED);
                 label1.setText("Stoped");
                 thread.interrupt();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+                System.exit(0);
             }
         });
     }

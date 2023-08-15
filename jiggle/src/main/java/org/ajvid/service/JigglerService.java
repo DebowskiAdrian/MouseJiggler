@@ -33,9 +33,7 @@ public class JigglerService implements Runnable {
             robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),(int)jigglerVariable.getMaxYAxis());
             try{
                 Thread.sleep(5000);
-                System.out.println("Jiggling.");
             }catch (InterruptedException exception){
-                System.out.println("Jiggler stopped working.");
                 jiggle = false;
             }
         }
