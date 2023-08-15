@@ -7,15 +7,19 @@ import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class JigglerService {
+public class JigglerService implements Runnable {
 
     JigglerVariable jigglerVariable = new JigglerVariable();
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-
-    public void moveMouse() throws AWTException, InterruptedException {
-
-        Robot robot = new Robot();
+    @Override
+    public void run() {
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
         Random random = new Random();
 
         jigglerVariable.setMaxXAxis(screenSize.getWidth());
@@ -30,6 +34,5 @@ public class JigglerService {
                 System.out.println("Jiggler stopped working.");
             }
         }
-
     }
 }
