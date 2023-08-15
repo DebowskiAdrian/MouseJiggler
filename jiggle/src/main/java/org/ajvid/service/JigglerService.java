@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class JigglerService implements Runnable {
 
     JigglerVariable jigglerVariable = new JigglerVariable();
+
+    //private boolean jiggle = true;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     @Override
@@ -22,16 +24,19 @@ public class JigglerService implements Runnable {
         }
         Random random = new Random();
 
+        boolean jiggle = true;
+
         jigglerVariable.setMaxXAxis(screenSize.getWidth());
         jigglerVariable.setMaxYAxis(screenSize.getHeight());
 
-        while (true){
+        while (jiggle){
             robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),(int)jigglerVariable.getMaxYAxis());
             try{
                 Thread.sleep(5000);
                 System.out.println("Jiggling.");
             }catch (InterruptedException exception){
                 System.out.println("Jiggler stopped working.");
+                jiggle = false;
             }
         }
     }
