@@ -7,41 +7,35 @@ import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class JigglerService {
+public class JigglerService implements Runnable {
 
     JigglerVariable jigglerVariable = new JigglerVariable();
+
+    //private boolean jiggle = true;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-    private void welcomeMessage(){
-        System.out.println("Welcome in Mouse Jiggler");
-    }
+    @Override
+    public void run() {
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+        Random random = new Random();
 
-    private void setJigglingFieldAndTime(){
+        boolean jiggle = true;
+
         jigglerVariable.setMaxXAxis(screenSize.getWidth());
         jigglerVariable.setMaxYAxis(screenSize.getHeight());
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please provide time between mouse move: ");
-
-        jigglerVariable.setTimeDelayBetweenMove((scanner.nextInt()*1000));
-    }
-
-    public void moveMouse() throws AWTException, InterruptedException {
-        welcomeMessage();
-        setJigglingFieldAndTime();
-
-        Robot robot = new Robot();
-        Random random = new Random();
-
-        while (true){
-            robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),(int)jigglerVariable.getMaxYAxis());
+        while (jiggle){
+            robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),random.nextInt((int)jigglerVariable.getMaxYAxis()));
             try{
-                Thread.sleep(jigglerVariable.getTimeDelayBetweenMove());
-                System.out.println("Jiggling.");
+                Thread.sleep(5000);
             }catch (InterruptedException exception){
-                System.out.println("Jiggler stopped working.");
+                jiggle = false;
             }
         }
-
     }
 }

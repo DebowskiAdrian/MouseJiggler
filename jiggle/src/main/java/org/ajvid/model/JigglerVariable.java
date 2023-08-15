@@ -3,7 +3,6 @@ package org.ajvid.model;
 public class JigglerVariable {
     private double maxYAxis;
     private double maxXAxis;
-    private int timeDelayBetweenMove;
 
     public double getMaxYAxis() {
         return maxYAxis;
@@ -21,11 +20,4 @@ public class JigglerVariable {
         this.maxXAxis = maxXAxis;
     }
 
-    public int getTimeDelayBetweenMove() {
-        return timeDelayBetweenMove;
-    }
-
-    public void setTimeDelayBetweenMove(int timeDelayBetweenMove) {
-        this.timeDelayBetweenMove = timeDelayBetweenMove;
-    }
 }
