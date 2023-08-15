@@ -7,4 +7,9 @@ public class JigglerGui {
     private JPanel panel1;
     private JButton stopButton;
     private JLabel label1;
+
+
+    public JPanel getPanel1() {
+        return panel1;
+    }
 }
