@@ -18,6 +18,9 @@ public class JigglerService {
         Robot robot = new Robot();
         Random random = new Random();
 
+        jigglerVariable.setMaxXAxis(screenSize.getWidth());
+        jigglerVariable.setMaxYAxis(screenSize.getHeight());
+
         while (true){
             robot.mouseMove(random.nextInt((int)jigglerVariable.getMaxXAxis()),(int)jigglerVariable.getMaxYAxis());
             try{
