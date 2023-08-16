@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class JigglerGui {
     private JButton jiggleButton;
@@ -39,7 +41,7 @@ public class JigglerGui {
                 label1.setText("Stoped");
                 thread.interrupt();
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -47,5 +49,4 @@ public class JigglerGui {
             }
         });
     }
-
 }
